@@ -1,5 +1,3 @@
-# ds-project-template
-
 # EDA Project: King County Housing Data
 
 ---
@@ -65,9 +63,6 @@ _A Mafiosi, sells several central houses (top 10%) over time, needs average outs
 │   └── eda_king_county.ipynb        # Main EDA notebook
 ├── slides/
 │   └── presentation.pdf             # High-level overview slides (PDF)
-├── scripts/
-│   └── data_processing.py           # (Optional) Data cleaning and processing script
-├── column_names.md                  # Column descriptions
 ├── README.md                        # This file
 ```
 
@@ -120,12 +115,10 @@ _A Mafiosi, sells several central houses (top 10%) over time, needs average outs
 - numpy
 - matplotlib
 - seaborn
-- geopandas
-- shapely
 
 Install dependencies with:
 ```
-pip install pandas numpy matplotlib seaborn geopandas shapely
+pip install pandas numpy matplotlib seaborn
 ```
 
 ---
