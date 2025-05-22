@@ -1,104 +1,141 @@
 # ds-project-template
 
-Template for creating ds simple projects
+# EDA Project: King County Housing Data
+
+---
+
+## Overview
+
+This repository contains an exploratory data analysis (EDA) project focused on the King County housing market. The analysis is designed for a fictional client, **Amy Williams**, a seller with unique requirements. The project aims to uncover actionable insights and provide strategic recommendations based on property sales data from King County, USA.
+
+---
+
+## Project Scenario
+
+**Client:**  
+Amy Williams  
+Seller  
+_A Mafiosi, sells several central houses (top 10%) over time, needs average outskirt houses over time to hide from the FBI._
+
+**Business Goal:**  
+- Provide specific recommendations on how the market is developing for successful sales.
+- Advise on where it is strategically best to buy, considering geographic and time-based information.
+- Determine which area is best to move to, depending on the ratio of sales.
+
+---
+
+## Hypotheses
+
+1. **Ratio of Sales:**  
+   There is no significant difference between the ratio of central to outskirts property sales compared to the overall market ratio.
+
+2. **Spatial Distribution:**  
+   There is no significant difference in the spatial distribution pattern of outskirt properties compared to central properties.
+
+3. **Timing of Sales:**  
+   There is no significant difference in the time intervals between central property sales and outskirt property transactions compared to quarterly timing.
+
+---
+
+## Methodology
+
+- **Defining Areas:**  
+  - Central and outskirt properties are defined based on zip codes.
+  - Central properties: Top 10% by value or sales volume.
+  - Outskirt properties: Average properties outside the central definition.
+
+- **Data Extraction & Processing:**  
+  - Extract quarterly sales data over the last decade for both central and outskirt areas.
+  - Study the distribution of property sales in both regions.
+  - Calculate and compare the ratio of central to outskirt sales over the last 12 months.
+
+- **Analysis Tools:**  
+  - **Pandas** and **NumPy** for data manipulation.
+  - **Matplotlib** and **Seaborn** for visualization.
+  - **GeoPandas** and **shapely.geometry** for spatial analysis.
+
+---
+
+## Repository Structure
+
+```
+├── data/
+│   └── king_county_housing.csv      # (Not uploaded to GitHub)
+├── notebooks/
+│   └── eda_king_county.ipynb        # Main EDA notebook
+├── slides/
+│   └── presentation.pdf             # High-level overview slides (PDF)
+├── scripts/
+│   └── data_processing.py           # (Optional) Data cleaning and processing script
+├── column_names.md                  # Column descriptions
+├── README.md                        # This file
+```
+
+---
+
+## Key Insights
+
+1. **Sales Ratio:**  
+   Analysis of the ratio between central and outskirt property sales over time reveals trends that may indicate shifts in buyer preferences or market saturation.
+
+2. **Geographical Patterns:**  
+   Spatial analysis highlights clusters of high-value sales and identifies emerging neighborhoods in the outskirts that may offer strategic opportunities.
+
+3. **Temporal Trends:**  
+   Quarterly sales patterns show whether central or outskirt properties are more sensitive to seasonal or economic cycles.
+
+---
+
+## Recommendations for Amy Williams
+
+1. **Strategic Relocation:**  
+   Consider purchasing in outskirt areas with rising sales ratios, as these may offer better anonymity and future appreciation potential.
+
+2. **Timing Sales:**  
+   Align central property sales with quarters showing peak demand to maximize returns.
+
+3. **Geographic Diversification:**  
+   Diversify holdings by acquiring properties in multiple outskirt zip codes identified as up-and-coming, reducing risk and increasing flexibility.
+
+---
+
+## How to Use This Repository
+
+1. **Explore the Data:**  
+   - Review the `notebooks/eda_king_county.ipynb` for step-by-step analysis and visualizations.
+   - Refer to `column_names.md` for clarification on dataset columns.
+
+2. **View Results:**  
+   - Check the `slides/presentation.pdf` for a concise summary of findings and recommendations.
+
+3. **(Optional) Data Processing:**  
+   - Use the script in `scripts/data_processing.py` for reproducible data cleaning and preparation.
+
+---
 
 ## Requirements
 
-- pyenv
-- python==3.11.3
+- Python 3.x
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- geopandas
+- shapely
 
-## Setup
-
-One of the first steps when starting any data science project is to create a virtual environment. For this project you have to create this environment from scratch yourself. However, you should be already familiar with the commands you will need to do so. The general workflow consists of... 
-
-* setting the python version locally to 3.11.3
-* creating a virtual environment using the `venv` module
-* activating your newly created environment 
-* upgrading `pip` (This step is not absolutely necessary, but will save you trouble when installing some packages.)
-* installing the required packages via `pip`
-
-At the end, you want to make sure that people who are interested in your project can create an identical environment on their own computer in order to be able to run your code without running into errors. Therefore you can create a `requirements file` and add it to your repository. You can create such a file by running the following command: 
-
-```bash
-pip freeze > requirements.txt
+Install dependencies with:
+```
+pip install pandas numpy matplotlib seaborn geopandas shapely
 ```
 
-*Note: In rare case such a requirements file created with `pip freeze` might not ensure that another (especially M1 chip) user can install and execute it properly. This can happen if libraries need to be compiled (e.g. SciPy). Then it also depends on environment variables and the actual system libraries.*
+---
 
-### Unit testing (Optional)
+## Notes
 
-If you write python scripts for your data processing methods, you can also write unit tests. In order to run the tests execute in terminal:
+- The dataset is stored locally in the `data/` folder and is not uploaded to GitHub for privacy.
+- All assumptions and definitions (e.g., what constitutes "central" or "outskirt" areas) are explicitly stated in the notebook and presentation.
+- This project is for educational purposes and uses a fictional client scenario.
 
-```bash
-pytest
-```
+---
 
-This command will execute all the functions in your project that start with the word **test**.
-
-## Set up your Environment
-This repo contains a requirements.txt file with a list of all the packages and dependencies you will need.
-
-Before you can start with plotly in Jupyter Lab you have to install node.js (if you haven't done it before).
-- Check **Node version**  by run the following commands:
-    ```sh
-    node -v
-    ```
-    If you haven't installed it yet, begin at `step_1`. Otherwise, proceed to `step_2`.
-
-
-### **`macOS`** type the following commands : 
-
-
-- `Step_1:` Update Homebrew and install Node by following commands:
-    ```sh
-    brew update
-    brew install node
-    ```
-
-- `Step_2:` Install the virtual environment and the required packages by following commands:
-
-    ```BASH
-    pyenv local 3.11.3
-    python -m venv .venv
-    source .venv/bin/activate
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
-### **`WindowsOS`** type the following commands :
-
-
-- `Step_1:` Update Chocolatey and install Node by following commands:
-    ```sh
-    choco upgrade chocolatey
-    choco install nodejs
-    ```
-
-- `Step_2:` Install the virtual environment and the required packages by following commands.
-
-   For `PowerShell` CLI :
-
-    ```PowerShell
-    pyenv local 3.11.3
-    python -m venv .venv
-    .venv\Scripts\Activate.ps1
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
-
-    For `Git-Bash` CLI :
-  
-    ```BASH
-    pyenv local 3.11.3
-    python -m venv .venv
-    source .venv/Scripts/activate
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
- 
-
- **`Note:`**
-    If you encounter an error when trying to run `pip install --upgrade pip`, try using the following command:
-
-   ```Bash
-   python.exe -m pip install --upgrade pip
-   ```
+Happy exploring! 🚀# EDA Project: King County Housing Data
